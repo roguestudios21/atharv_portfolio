@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Side Project Success",
+        "description": "Launched a side project that accidentally gained 1,000+ users overnight in over 40 countries.",
+        "details": "The project went viral on social media, requiring rapid infrastructure scaling and real-time support. It taught me invaluable lessons about server-side optimization and community management."
+    },
+    {
+        "title": "Rubik's Cube Record",
+        "description": "Solved a Rubik's cube under 30 seconds (once, and never again).",
+        "details": "Requires intense pattern recognition and finger dexterity. Achieving a sub-30 second solve was a milestone in dedicated practice and spatial reasoning."
+    },
+    {
+        "title": "Humor AI",
+        "description": "Built a chatbot that responds with dad jokes only, using advanced NLP (or just a big JSON file).",
+        "details": "A fun exploration into conversational UI. The goal was to create an interface that was intentionally 'bad' in a charming way."
+    },
+    {
+        "title": "Hackathon Endurance",
+        "description": "Survived an all-nighter hackathon fueled purely by cold pizza and curiosity.",
+        "details": "Collaboration under pressure. We built a prototype for a collaborative drawing app that used web sockets for real-time synchronization."
+    },
+    {
+        "title": "Rapid Deployment",
+        "description": "Designed and deployed a personal website before finishing a single cup of coffee.",
+        "details": "Leveraging boilerplate templates and cloud platforms to achieve high speed without compromising on initial visual appeal."
+    },
+    {
+        "title": "Open Source Contributor",
+        "description": "Contributed code to an open source project at 2 AM, solving a long-standing edge case bugs.",
+        "details": "The thrill of the pull request being merged. I focused on documentation and unit testing for a popular animation library."
+    },
+    {
+        "title": "100-Day Challenge",
+        "description": "Completed a 100-day coding challenge with a perfect streak and 10+ small projects shipped.",
+        "details": "Discipline and consistency. Building a habit of shipping code every day significantly improved my problem-solving speed."
+    },
+    {
+        "title": "Curation Excellence",
+        "description": "Created a music playlist that actually got compliments from the AUX controller.",
+        "details": "Understanding audience taste and pacing. Curating experience through sound."
+    }
+]

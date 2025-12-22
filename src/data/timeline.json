@@ -1,0 +1,42 @@
+[
+    {
+        "date": "Aug 2002",
+        "title": "Born",
+        "desc": "The beginning of everything."
+    },
+    {
+        "date": "May 2018",
+        "title": "High School",
+        "desc": "Graduated with honors."
+    },
+    {
+        "date": "Sep 2020",
+        "title": "First Code",
+        "desc": "Started my journey in CS."
+    },
+    {
+        "date": "Jun 2021",
+        "title": "Web Dev",
+        "desc": "Built first React app."
+    },
+    {
+        "date": "Jan 2022",
+        "title": "Internship",
+        "desc": "First industry experience."
+    },
+    {
+        "date": "Mar 2023",
+        "title": "Freelance",
+        "desc": "Started taking clients."
+    },
+    {
+        "date": "Oct 2024",
+        "title": "Hackathon",
+        "desc": "Won first place globally."
+    },
+    {
+        "date": "Dec 2025",
+        "title": "Present",
+        "desc": "Building the future me."
+    }
+]

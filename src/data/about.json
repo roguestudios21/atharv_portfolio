@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "color": "bg-[#8E8180]",
+        "label": "Visual Exploration"
+    },
+    {
+        "id": 2,
+        "color": "bg-[#A79A99]",
+        "label": "System Architecture"
+    },
+    {
+        "id": 3,
+        "color": "bg-[#6B5E5D]",
+        "label": "User Perspective"
+    }
+]
