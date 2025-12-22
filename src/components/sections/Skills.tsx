@@ -4,6 +4,7 @@ import React, { useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+
 import skills from "@/data/skills.json"
 
 export function Skills() {
@@ -32,11 +33,19 @@ export function Skills() {
                         key={skill.id}
                         className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 bg-[#F5F5F7] rounded-[24px] border border-[#d2d2d7] relative flex flex-col items-center justify-center overflow-hidden group snap-center hover:shadow-lg transition-all"
                     >
-                        {/* Wireframe Cross (X) */}
-                        <div className="w-full h-[1px] bg-[#1d1d1f]/5 rotate-45 absolute" />
-                        <div className="w-full h-[1px] bg-[#1d1d1f]/5 -rotate-45 absolute" />
+                        {/* Logo Container */}
+                        <div className="relative w-12 h-12 md:w-16 md:h-16 mb-4 transform group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
+                            {skill.icon && (
+                                <img
+                                    src={skill.icon}
+                                    alt={skill.name}
+                                    className="w-full h-full object-contain"
+                                    loading="lazy"
+                                />
+                            )}
+                        </div>
 
-                        <span className="text-xs md:text-sm font-semibold text-[#1d1d1f]/80 mt-auto mb-6 transform group-hover:scale-110 transition-transform">
+                        <span className="text-xs md:text-sm font-semibold text-[#1d1d1f]/80 mb-2 transform group-hover:scale-105 transition-transform">
                             {skill.name}
                         </span>
 
