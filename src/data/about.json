@@ -2,16 +2,16 @@
     {
         "id": 1,
         "color": "bg-[#8E8180]",
-        "label": "Visual Exploration"
+        "label": "iOS Development"
     },
     {
         "id": 2,
         "color": "bg-[#A79A99]",
-        "label": "System Architecture"
+        "label": "AI & Machine Learning"
     },
     {
         "id": 3,
         "color": "bg-[#6B5E5D]",
-        "label": "User Perspective"
+        "label": "Academic Research"
     }
 ]

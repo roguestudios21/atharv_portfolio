@@ -1,62 +1,62 @@
 [
     {
         "id": 1,
-        "title": "Project 1",
-        "description": "A comprehensive digital transformation for a leading retail brand.",
-        "details": "This project involved a complete redesign of the user experience and a migration to a modern microservices architecture. Key results included a 40% increase in mobile conversion rates.",
+        "title": "Render Monitor",
+        "description": "An iOS/iPadOS app to track Blender render status and preview frames remotely.",
+        "details": "Built using SwiftUI, Firebase, and RevenueCat. It allows artists to monitor long-running renders on their mobile devices with real-time updates.",
         "tags": [
-            "Next.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "Figma"
+            "SwiftUI",
+            "Firebase",
+            "RevenueCat",
+            "Blender"
         ]
     },
     {
         "id": 2,
-        "title": "Project 2",
-        "description": "Innovative AI-powered solution for predictive maintenance in manufacturing.",
-        "details": "We developed a suite of machine learning models to analyze sensor data in real-time, predicting equipment failure before it happens. This saved the client millions in downtime costs.",
+        "title": "ChatOverAir",
+        "description": "A peer-to-peer ephemeral chat application for private communication.",
+        "details": "Utilizes MultipeerConnectivity and Combine for serverless, local communication. Focused on privacy and ephemeral messaging without data persistence.",
         "tags": [
-            "Python",
-            "TensorFlow",
-            "React",
-            "AWS"
+            "Swift",
+            "MultipeerConnectivity",
+            "Combine",
+            "iOS"
         ]
     },
     {
         "id": 3,
-        "title": "Project 3",
-        "description": "Secure and scalable fintech platform for cross-border payments.",
-        "details": "Built with a focus on security and reliability, this platform processes thousands of transactions per second across multiple currencies and jurisdictions.",
+        "title": "Marathi AI Audio Detection",
+        "description": "Deep learning system for classifying human vs. AI-generated Marathi speech.",
+        "details": "Achieved 99.68% accuracy using a CNN-based architecture. Solves the challenge of identifying deepfake audio in regional languages.",
         "tags": [
-            "Go",
-            "Kubernetes",
-            "PostgreSQL",
-            "React"
+            "Python",
+            "Deep Learning",
+            "CNN",
+            "Audio Processing"
         ]
     },
     {
         "id": 4,
-        "title": "Project 4",
-        "description": "Sleek and intuitive fitness tracking application for iOS and Android.",
-        "details": "A cross-platform app that synchronizes health data from wearables and provides personalized workout recommendations based on user performance.",
+        "title": "Defake Video Detection",
+        "description": "Multimodal system combining FER and BERT for deepfake detection.",
+        "details": "Investigates inconsistencies between facial emotions (FER) and audio sentiment (BERT) to identify manipulated video content.",
         "tags": [
-            "React Native",
-            "Firebase",
-            "Redux",
-            "HealthKit"
+            "Machine Learning",
+            "FER",
+            "BERT",
+            "Computer Vision"
         ]
     },
     {
         "id": 5,
-        "title": "Project 5",
-        "description": "Data-driven marketing dashboard for real-time campaign analysis.",
-        "details": "Integrates with multiple social media and advertising APIs to provide a unified view of marketing spend and performance across all channels.",
+        "title": "VRET for Hydrophobia",
+        "description": "VR-based exposure therapy project for treating fear of water.",
+        "details": "Developed using Blender and Unity. Published as a book chapter research. Provides a safe, controlled environment for therapy.",
         "tags": [
-            "Vue.js",
-            "D3.js",
-            "Express",
-            "MongoDB"
+            "Unity",
+            "Blender",
+            "VR",
+            "Research"
         ]
     }
 ]

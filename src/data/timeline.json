@@ -1,42 +1,32 @@
 [
     {
-        "date": "Aug 2002",
-        "title": "Born",
-        "desc": "The beginning of everything."
+        "date": "Aug 2021",
+        "title": "B.E. Computer Science",
+        "desc": "Started Bachelor of Engineering at SIES GST, Mumbai University."
     },
     {
-        "date": "May 2018",
-        "title": "High School",
-        "desc": "Graduated with honors."
+        "date": "2022-2024",
+        "title": "GDSC Member",
+        "desc": "Active member of Google Developer Student Clubs."
     },
     {
-        "date": "Sep 2020",
-        "title": "First Code",
-        "desc": "Started my journey in CS."
+        "date": "July 2024",
+        "title": "ML Certification",
+        "desc": "Completed Machine Learning certification by Stanford University."
     },
     {
-        "date": "Jun 2021",
-        "title": "Web Dev",
-        "desc": "Built first React app."
+        "date": "2024-2025",
+        "title": "President, Rotaract Club",
+        "desc": "Leading the Rotaract Club of SIES GST as President."
     },
     {
-        "date": "Jan 2022",
-        "title": "Internship",
-        "desc": "First industry experience."
+        "date": "July 2025",
+        "title": "Meta Developer Cert",
+        "desc": "Expected completion of Meta iOS Developer Professional Certificate."
     },
     {
-        "date": "Mar 2023",
-        "title": "Freelance",
-        "desc": "Started taking clients."
-    },
-    {
-        "date": "Oct 2024",
-        "title": "Hackathon",
-        "desc": "Won first place globally."
-    },
-    {
-        "date": "Dec 2025",
-        "title": "Present",
-        "desc": "Building the future me."
+        "date": "May 2025",
+        "title": "Graduation",
+        "desc": "Completing B.E. in Computer Science and Engineering."
     }
 ]
