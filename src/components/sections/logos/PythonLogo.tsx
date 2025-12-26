@@ -13,10 +13,10 @@ export function PythonLogo(props: any) {
       </mesh>
       {/* Colored Parts */}
       <mesh geometry={nodes.FFD43B.geometry} position={[0.226, 0.03, -0.226]} rotation={[-Math.PI, 0, -Math.PI]}>
-        <meshStandardMaterial color="#FFD43B" roughness={0.05} metalness={0.5} emissive="#FFD43B" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#FFD43B" roughness={0.05} metalness={0.5} emissive="#FFD43B" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['306998'].geometry} position={[0, 0.03, 0]}>
-        <meshStandardMaterial color="#306998" roughness={0.05} metalness={0.5} emissive="#306998" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#306998" roughness={0.05} metalness={0.5} emissive="#306998" emissiveIntensity={1.0} />
       </mesh>
     </group>
   )

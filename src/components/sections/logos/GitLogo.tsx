@@ -13,10 +13,10 @@ export function GitLogo(props: any) {
       </mesh>
       {/* Colored Parts */}
       <mesh geometry={nodes['#3d2d00'].geometry} position={[0, 0.03, 0]}>
-        <meshStandardMaterial color="#F05032" roughness={0.05} metalness={0.5} emissive="#F05032" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#F05032" roughness={0.05} metalness={0.5} emissive="#F05032" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['#ffffff'].geometry} position={[0, 0.05, 0]}>
-        <meshStandardMaterial color="#ffffff" roughness={0.05} metalness={0.5} emissive="#ffffff" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#ffffff" roughness={0.05} metalness={0.5} emissive="#ffffff" emissiveIntensity={1.0} />
       </mesh>
     </group>
   )

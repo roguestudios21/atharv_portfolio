@@ -35,7 +35,7 @@ export function Modal({ isOpen, onClose, children, title, maxWidthClass = "max-w
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
-                        className="fixed inset-0 z-50 bg-background/50 backdrop-blur-xl"
+                        className="fixed inset-0 z-[60] bg-background/60 backdrop-blur-md"
                     />
 
                     {/* Modal Content */}
@@ -43,16 +43,16 @@ export function Modal({ isOpen, onClose, children, title, maxWidthClass = "max-w
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className={`fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full ${maxWidthClass} p-6`}
+                        className={`fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-full ${maxWidthClass} p-6`}
                     >
-                        <div className="bg-card/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden glass">
-                            <div className="flex justify-between items-center p-6 border-b border-white/10">
-                                <h2 className="text-2xl font-bold">{title}</h2>
-                                <Button variant="ghost" size="icon" onClick={onClose} className="rounded-full hover:bg-white/10">
-                                    <X className="w-5 h-5" />
+                        <div className="bg-card border border-border/50 rounded-[32px] shadow-2xl overflow-hidden">
+                            <div className="flex justify-between items-center p-8 border-b border-border/50 bg-secondary/30">
+                                <h2 className="text-3xl font-bold tracking-tight text-foreground">{title}</h2>
+                                <Button variant="ghost" size="icon" onClick={onClose} className="rounded-full w-12 h-12 hover:bg-secondary text-foreground transition-all">
+                                    <X className="w-6 h-6" />
                                 </Button>
                             </div>
-                            <div className="p-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                            <div className="p-8 max-h-[75vh] overflow-y-auto no-scrollbar bg-card">
                                 {children}
                             </div>
                         </div>

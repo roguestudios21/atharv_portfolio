@@ -13,10 +13,10 @@ export function ReactLogo(props: any) {
       </mesh>
       {/* Colored Parts */}
       <mesh geometry={nodes['0081A3_2'].geometry} position={[0, 0.03, 0]}>
-        <meshStandardMaterial color="#61DAFB" roughness={0.05} metalness={0.5} emissive="#61DAFB" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#61DAFB" roughness={0.05} metalness={0.5} emissive="#61DAFB" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['0081A3'].geometry} position={[0, 0.03, 0]}>
-        <meshStandardMaterial color="#61DAFB" roughness={0.05} metalness={0.5} emissive="#61DAFB" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#61DAFB" roughness={0.05} metalness={0.5} emissive="#61DAFB" emissiveIntensity={1.0} />
       </mesh>
     </group>
   )

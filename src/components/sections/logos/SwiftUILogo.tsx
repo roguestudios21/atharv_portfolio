@@ -13,10 +13,10 @@ export function SwiftUILogo(props: any) {
       </mesh>
       {/* Colored Parts */}
       <mesh geometry={nodes.ffffff001.geometry} position={[0, 0.053, 0]}>
-        <meshStandardMaterial color="#ffffff" roughness={0.05} metalness={0.5} emissive="#ffffff" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#ffffff" roughness={0.05} metalness={0.5} emissive="#ffffff" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes.a000c8.geometry} position={[0, 0.032, 0]}>
-        <meshStandardMaterial color="#a000c8" roughness={0.05} metalness={0.5} emissive="#a000c8" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#a000c8" roughness={0.05} metalness={0.5} emissive="#a000c8" emissiveIntensity={1.0} />
       </mesh>
     </group>
   )

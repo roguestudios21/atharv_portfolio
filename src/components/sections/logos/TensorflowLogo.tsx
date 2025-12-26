@@ -13,19 +13,19 @@ export function TensorflowLogo(props: any) {
       </mesh>
       {/* Colored Parts */}
       <mesh geometry={nodes['#FFA000002'].geometry} position={[-0.016, 0.05, 0]}>
-        <meshStandardMaterial color="#FFA000" roughness={0.05} metalness={0.5} emissive="#FFA000" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#FFA000" roughness={0.05} metalness={0.5} emissive="#FFA000" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['#FFA000001'].geometry} position={[-0.016, 0.04, 0]}>
-        <meshStandardMaterial color="#FFA000" roughness={0.05} metalness={0.5} emissive="#FFA000" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#FFA000" roughness={0.05} metalness={0.5} emissive="#FFA000" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['#FFB300'].geometry} position={[-0.016, 0.05, 0]}>
-        <meshStandardMaterial color="#FFB300" roughness={0.05} metalness={0.5} emissive="#FFB300" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#FFB300" roughness={0.05} metalness={0.5} emissive="#FFB300" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['#FFB300001'].geometry} position={[-0.016, 0.04, 0]}>
-        <meshStandardMaterial color="#FFB300" roughness={0.05} metalness={0.5} emissive="#FFB300" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#FFB300" roughness={0.05} metalness={0.5} emissive="#FFB300" emissiveIntensity={1.0} />
       </mesh>
       <mesh geometry={nodes['#FFB300002'].geometry} position={[-0.016, 0.03, 0]}>
-        <meshStandardMaterial color="#FFB300" roughness={0.05} metalness={0.5} emissive="#FFB300" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#FFB300" roughness={0.05} metalness={0.5} emissive="#FFB300" emissiveIntensity={1.0} />
       </mesh>
     </group>
   )

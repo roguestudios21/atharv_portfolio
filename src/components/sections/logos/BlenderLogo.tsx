@@ -38,11 +38,11 @@ export function BlenderLogo(props: any) {
       </mesh>
       {/* Blue Part (Curve033) */}
       <mesh geometry={nodes.Curve033.geometry} position={[0, 0.03, 0]}>
-        <meshStandardMaterial color="#265787" roughness={0.1} metalness={0.2} emissive="#265787" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#265787" roughness={0.1} metalness={0.2} emissive="#265787" emissiveIntensity={1.0} />
       </mesh>
       {/* Orange Part (Curve034) */}
       <mesh geometry={nodes.Curve034.geometry} position={[0, 0.03, 0]}>
-        <meshStandardMaterial color="#E87D0D" roughness={0.05} metalness={0.5} emissive="#E87D0D" emissiveIntensity={0.2} />
+        <meshStandardMaterial color="#E87D0D" roughness={0.05} metalness={0.5} emissive="#E87D0D" emissiveIntensity={1.0} />
       </mesh>
     </group>
   )

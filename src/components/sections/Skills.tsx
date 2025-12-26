@@ -4,6 +4,8 @@ import React, { useRef, useState, useEffect, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Html, Float, RoundedBox, PerspectiveCamera, Center } from "@react-three/drei"
 import * as THREE from "three"
+import { EffectComposer, Bloom } from "@react-three/postprocessing"
+import { useTheme } from "next-themes"
 import { ChevronLeft, ChevronRight, MousePointer2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import skills from "@/data/skills.json"
@@ -36,12 +38,13 @@ const LogoComponents: Record<string, React.ComponentType<any>> = {
     "TensorFlow": TensorflowLogo,
 };
 
-function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
+function SkillBlock({ skill, index, total, hoveredId, setHoveredId, radius }: {
     skill: Skill,
     index: number,
     total: number,
     hoveredId: number | null,
-    setHoveredId: (id: number | null) => void
+    setHoveredId: (id: number | null) => void,
+    radius: number
 }) {
     const meshRef = useRef<THREE.Group>(null)
     const isHovered = hoveredId === skill.id
@@ -49,7 +52,6 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
     const has3DModel = !!LogoComponent
 
     // Calculate position on a cylinder
-    const radius = 25
     const angle = (index / total) * Math.PI * 2
 
     useFrame((state) => {
@@ -80,7 +82,7 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
                         <Center>
                             {LogoComponent && (
                                 <LogoComponent
-                                    scale={15}
+                                    scale={20}
                                     rotation={[Math.PI / 2, 0, 0]}
                                     position={[0, 0, 0]}
                                 />
@@ -105,7 +107,7 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
                         <meshStandardMaterial
                             color={isHovered ? "#0071e3" : "#ffffff"}
                             emissive={isHovered ? "#0071e3" : "#000000"}
-                            emissiveIntensity={isHovered ? 0.3 : 0}
+                            emissiveIntensity={isHovered ? 1.0 : 0}
                             roughness={0.1}
                             metalness={0.2}
                         />
@@ -130,7 +132,7 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
                                     />
                                 </div>
                             )}
-                            <span className={`text-center font-bold text-lg tracking-tight transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                            <span className={`text-center font-bold text-lg tracking-tight transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
                                 {skill.name}
                             </span>
                         </div>
@@ -141,7 +143,7 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
     )
 }
 
-function SkillCloud({ rotationX, rotationY }: { rotationX: number, rotationY: number }) {
+function SkillCloud({ rotationX, rotationY, radius }: { rotationX: number, rotationY: number, radius: number }) {
     const groupRef = useRef<THREE.Group>(null)
     const [hoveredId, setHoveredId] = useState<number | null>(null)
 
@@ -163,6 +165,7 @@ function SkillCloud({ rotationX, rotationY }: { rotationX: number, rotationY: nu
                     total={skills.length}
                     hoveredId={hoveredId}
                     setHoveredId={setHoveredId}
+                    radius={radius}
                 />
             ))}
         </group>
@@ -173,8 +176,22 @@ function SkillCloud({ rotationX, rotationY }: { rotationX: number, rotationY: nu
 const SkillTileProxy = SkillBlock;
 
 export function Skills() {
+    const { resolvedTheme } = useTheme()
+    const isDark = resolvedTheme === "dark"
     const [rotationY, setRotationY] = useState(0)
     const [rotationX, setRotationX] = useState(0)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768)
+        checkMobile()
+        window.addEventListener("resize", checkMobile)
+        return () => window.removeEventListener("resize", checkMobile)
+    }, [])
+
+    const radius = isMobile ? 14 : 22
+    const cameraZ = isMobile ? 45 : 38
+    const fov = isMobile ? 50 : 40
     const isDragging = useRef(false)
     const startX = useRef(0)
     const startRotationY = useRef(0)
@@ -215,12 +232,12 @@ export function Skills() {
     }
 
     return (
-        <section id="skills" className="py-24 px-6 md:px-12 w-full bg-[#fbfbfd]">
+        <section id="skills" className="py-24 px-6 md:px-12 w-full bg-background transition-colors duration-500">
             <div className="w-full">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div>
-                        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-[#1d1d1f] mb-4">Skills & Technologies</h2>
-                        <p className="text-lg md:text-xl text-[#86868b] max-w-2xl">
+                        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-4 transition-colors duration-500">Skills & Technologies</h2>
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl transition-colors duration-500">
                             A curated set of tools and platforms I use to bring ideas to life.
                         </p>
                     </div>
@@ -230,22 +247,22 @@ export function Skills() {
                             variant="outline"
                             size="icon"
                             onClick={() => rotate("left")}
-                            className="w-12 h-12 rounded-full border-[#d2d2d7] hover:bg-white hover:shadow-md transition-all active:scale-95"
+                            className="w-12 h-12 rounded-full border-border bg-card/50 backdrop-blur-md hover:bg-card/80 hover:border-accent transition-all active:scale-95 shadow-lg shadow-black/5"
                         >
-                            <ChevronLeft className="w-6 h-6 text-[#1d1d1f]" />
+                            <ChevronLeft className="w-6 h-6 text-foreground" />
                         </Button>
                         <Button
                             variant="outline"
                             size="icon"
                             onClick={() => rotate("right")}
-                            className="w-12 h-12 rounded-full border-[#d2d2d7] hover:bg-white hover:shadow-md transition-all active:scale-95"
+                            className="w-12 h-12 rounded-full border-border bg-card/50 backdrop-blur-md hover:bg-card/80 hover:border-accent transition-all active:scale-95 shadow-lg shadow-black/5"
                         >
-                            <ChevronRight className="w-6 h-6 text-[#1d1d1f]" />
+                            <ChevronRight className="w-6 h-6 text-foreground" />
                         </Button>
                     </div>
                 </div>
 
-                <div className="w-full h-[450px] md:h-[550px] rounded-[48px] overflow-hidden bg-white border border-[#d2d2d7] relative shadow-2xl shadow-black/5 group/canvas mt-8">
+                <div className="w-full h-[450px] md:h-[550px] rounded-[48px] overflow-hidden bg-card border border-border relative transition-all duration-500 shadow-xl group/canvas mt-8">
                     {/* Drag Overlay */}
                     <div
                         onPointerDown={onPointerDown}
@@ -254,28 +271,41 @@ export function Skills() {
                         className="absolute inset-0 z-20 cursor-grab active:cursor-grabbing touch-none"
                     />
 
-                    <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 38], fov: 40 }}>
-                        <PerspectiveCamera makeDefault position={[0, 0, 38]} fov={40} />
-                        <ambientLight intensity={1.2} />
-                        <pointLight position={[10, 10, 10]} intensity={1.5} color="#0071e3" />
-                        <spotLight position={[-15, 20, 10]} angle={0.25} penumbra={1} intensity={2} castShadow />
+                    <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, cameraZ], fov: fov }}>
+                        <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} fov={fov} />
+                        <ambientLight intensity={isDark ? 0.8 : 1.2} />
+                        <pointLight position={[10, 10, 10]} intensity={isDark ? 2.5 : 1.5} color="#0071e3" />
+                        <spotLight position={[-15, 20, 10]} angle={0.25} penumbra={1} intensity={isDark ? 4 : 2} castShadow />
 
                         <React.Suspense fallback={null}>
-                            <SkillCloud rotationX={rotationX} rotationY={rotationY} />
+                            <SkillCloud
+                                rotationX={rotationX}
+                                rotationY={rotationY}
+                                radius={radius}
+                            />
                         </React.Suspense>
 
-                        <fog attach="fog" args={["#fbfbfd", 35, 95]} />
+                        <EffectComposer>
+                            <Bloom
+                                luminanceThreshold={1}
+                                mipmapBlur
+                                intensity={isDark ? 0.8 : 0.3}
+                                radius={0.4}
+                            />
+                        </EffectComposer>
+
+                        <fog attach="fog" args={[isDark ? "#161617" : "#fbfbfd", 35, 95]} />
                     </Canvas>
 
                     {/* Overlay interaction hint */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-6 py-3 bg-black/5 backdrop-blur-md rounded-full border border-black/5 pointer-events-none z-10">
-                        <MousePointer2 className="w-4 h-4 text-[#1d1d1f]/40" />
-                        <span className="text-[10px] font-bold text-[#1d1d1f]/40 uppercase tracking-[0.2em]">
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-6 py-3 bg-card/30 backdrop-blur-xl rounded-full border border-border pointer-events-none z-10 shadow-lg transition-all duration-500">
+                        <MousePointer2 className="w-4 h-4 text-muted-foreground" />
+                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">
                             Hold and Drag to Rotate
                         </span>
                     </div>
 
-                    <div className="absolute inset-0 pointer-events-none border-[1px] border-black/5 rounded-[48px] z-10" />
+                    <div className="absolute inset-0 pointer-events-none border-[1px] border-border rounded-[48px] z-10" />
                 </div>
             </div>
         </section>
