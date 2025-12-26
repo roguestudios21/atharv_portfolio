@@ -10,53 +10,43 @@
         "icon": "https://cdn.simpleicons.org/swift/F05138"
     },
     {
-        "name": "UIKit",
-        "id": 3,
-        "icon": "https://cdn.simpleicons.org/uikit/ffffff"
-    },
-    {
-        "name": "Objective-C",
-        "id": 4,
-        "icon": "https://cdn.simpleicons.org/apple/000000"
-    },
-    {
         "name": "Python",
-        "id": 5,
+        "id": 3,
         "icon": "https://cdn.simpleicons.org/python/3776AB"
     },
     {
         "name": "TensorFlow",
-        "id": 6,
+        "id": 4,
         "icon": "https://cdn.simpleicons.org/tensorflow/FF6F00"
     },
     {
         "name": "PyTorch",
-        "id": 7,
+        "id": 5,
         "icon": "https://cdn.simpleicons.org/pytorch/EE4C2C"
     },
     {
         "name": "React",
-        "id": 8,
+        "id": 6,
         "icon": "https://cdn.simpleicons.org/react/61DAFB"
     },
     {
         "name": "Figma",
-        "id": 9,
+        "id": 7,
         "icon": "https://cdn.simpleicons.org/figma/F24E1E"
     },
     {
         "name": "Git",
-        "id": 10,
+        "id": 8,
         "icon": "https://cdn.simpleicons.org/git/F05032"
     },
     {
         "name": "Firebase",
-        "id": 11,
+        "id": 9,
         "icon": "https://cdn.simpleicons.org/firebase/FFCA28"
     },
     {
         "name": "Blender",
-        "id": 12,
+        "id": 10,
         "icon": "https://cdn.simpleicons.org/blender/EB8C10"
     }
 ]
