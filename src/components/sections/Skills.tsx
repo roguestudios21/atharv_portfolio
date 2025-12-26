@@ -2,17 +2,39 @@
 
 import React, { useRef, useState, useEffect, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { Html, Float, RoundedBox, PerspectiveCamera } from "@react-three/drei"
+import { Html, Float, RoundedBox, PerspectiveCamera, Center } from "@react-three/drei"
 import * as THREE from "three"
 import { ChevronLeft, ChevronRight, MousePointer2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import skills from "@/data/skills.json"
+
+import { BlenderLogo } from "./logos/BlenderLogo"
+import { FigmaLogo } from "./logos/FigmaLogo"
+import { FirebaseLogo } from "./logos/FirebaseLogo"
+import { GitLogo } from "./logos/GitLogo"
+import { PythonLogo } from "./logos/PythonLogo"
+import { ReactLogo } from "./logos/ReactLogo"
+import { SwiftLogo } from "./logos/SwiftLogo"
+import { SwiftUILogo } from "./logos/SwiftUILogo"
+import { TensorflowLogo } from "./logos/TensorflowLogo"
 
 interface Skill {
     id: number;
     name: string;
     icon: string;
 }
+
+const LogoComponents: Record<string, React.ComponentType<any>> = {
+    "Blender": BlenderLogo,
+    "Figma": FigmaLogo,
+    "Firebase": FirebaseLogo,
+    "Git": GitLogo,
+    "Python": PythonLogo,
+    "React": ReactLogo,
+    "Swift": SwiftLogo,
+    "SwiftUI": SwiftUILogo,
+    "TensorFlow": TensorflowLogo,
+};
 
 function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
     skill: Skill,
@@ -23,9 +45,11 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
 }) {
     const meshRef = useRef<THREE.Group>(null)
     const isHovered = hoveredId === skill.id
+    const LogoComponent = LogoComponents[skill.name]
+    const has3DModel = !!LogoComponent
 
     // Calculate position on a cylinder
-    const radius = 25 // Further increased radius
+    const radius = 25
     const angle = (index / total) * Math.PI * 2
 
     useFrame((state) => {
@@ -39,53 +63,79 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId }: {
             ref={meshRef}
             position={[
                 Math.sin(angle) * radius,
-                (index % 3 - 1) * 1.5, // Spread them more on Y axis
+                (index % 3 - 1) * 1.5,
                 Math.cos(angle) * radius
             ]}
             rotation={[0, angle, 0]}
         >
             <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.4}>
-                <RoundedBox
-                    args={[4.0, 4.0, 0.5]} // Larger blocks
-                    radius={0.1}
-                    smoothness={4}
-                    onPointerOver={(e) => {
-                        e.stopPropagation()
-                        setHoveredId(skill.id)
-                    }}
-                    onPointerOut={() => setHoveredId(null)}
-                >
-                    <meshStandardMaterial
-                        color={isHovered ? "#0071e3" : "#ffffff"}
-                        emissive={isHovered ? "#0071e3" : "#000000"}
-                        emissiveIntensity={isHovered ? 0.3 : 0}
-                        roughness={0.1}
-                        metalness={0.2}
-                    />
-                </RoundedBox>
-
-                <Html
-                    transform
-                    distanceFactor={6}
-                    position={[0, 0, 0.61]} // Positioned on the front face (1.2 depth / 2 + small offset)
-                    className="pointer-events-none select-none"
-                    occlude="blending"
-                >
-                    <div className="flex flex-col items-center justify-center w-40 h-40">
-                        {skill.icon && (
-                            <div className="w-18 h-18 mb-5 drop-shadow-lg">
-                                <img
-                                    src={skill.icon}
-                                    alt={skill.name}
-                                    className="w-full h-full object-contain"
+                {has3DModel ? (
+                    <group
+                        onPointerOver={(e) => {
+                            e.stopPropagation()
+                            setHoveredId(skill.id)
+                        }}
+                        onPointerOut={() => setHoveredId(null)}
+                    >
+                        <Center>
+                            {LogoComponent && (
+                                <LogoComponent
+                                    scale={15}
+                                    rotation={[Math.PI / 2, 0, 0]}
+                                    position={[0, 0, 0]}
                                 />
-                            </div>
-                        )}
-                        <span className={`text-center font-bold text-lg tracking-tight transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#1d1d1f]'}`}>
-                            {skill.name}
-                        </span>
-                    </div>
-                </Html>
+                            )}
+                        </Center>
+                        {/* Invisible hit-box */}
+                        <mesh visible={false}>
+                            <boxGeometry args={[6, 6, 2]} />
+                        </mesh>
+                    </group>
+                ) : (
+                    <RoundedBox
+                        args={[4.0, 4.0, 0.5]}
+                        radius={0.1}
+                        smoothness={4}
+                        onPointerOver={(e) => {
+                            e.stopPropagation()
+                            setHoveredId(skill.id)
+                        }}
+                        onPointerOut={() => setHoveredId(null)}
+                    >
+                        <meshStandardMaterial
+                            color={isHovered ? "#0071e3" : "#ffffff"}
+                            emissive={isHovered ? "#0071e3" : "#000000"}
+                            emissiveIntensity={isHovered ? 0.3 : 0}
+                            roughness={0.1}
+                            metalness={0.2}
+                        />
+                    </RoundedBox>
+                )}
+
+                {!has3DModel && (
+                    <Html
+                        transform
+                        distanceFactor={6}
+                        position={[0, 0, 0.61]}
+                        className="pointer-events-none select-none"
+                        occlude="blending"
+                    >
+                        <div className="flex flex-col items-center justify-center w-40 h-40">
+                            {skill.icon && (
+                                <div className="w-18 h-18 mb-5 drop-shadow-lg">
+                                    <img
+                                        src={skill.icon}
+                                        alt={skill.name}
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
+                            )}
+                            <span className={`text-center font-bold text-lg tracking-tight transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                                {skill.name}
+                            </span>
+                        </div>
+                    </Html>
+                )}
             </Float>
         </group>
     )
@@ -206,7 +256,7 @@ export function Skills() {
 
                     <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 38], fov: 40 }}>
                         <PerspectiveCamera makeDefault position={[0, 0, 38]} fov={40} />
-                        <ambientLight intensity={1} />
+                        <ambientLight intensity={1.2} />
                         <pointLight position={[10, 10, 10]} intensity={1.5} color="#0071e3" />
                         <spotLight position={[-15, 20, 10]} angle={0.25} penumbra={1} intensity={2} castShadow />
 
@@ -214,7 +264,7 @@ export function Skills() {
                             <SkillCloud rotationX={rotationX} rotationY={rotationY} />
                         </React.Suspense>
 
-                        <fog attach="fog" args={["#fbfbfd", 25, 55]} />
+                        <fog attach="fog" args={["#fbfbfd", 35, 95]} />
                     </Canvas>
 
                     {/* Overlay interaction hint */}

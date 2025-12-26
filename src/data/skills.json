@@ -20,33 +20,28 @@
         "icon": "https://cdn.simpleicons.org/tensorflow/FF6F00"
     },
     {
-        "name": "PyTorch",
-        "id": 5,
-        "icon": "https://cdn.simpleicons.org/pytorch/EE4C2C"
-    },
-    {
         "name": "React",
-        "id": 6,
+        "id": 5,
         "icon": "https://cdn.simpleicons.org/react/61DAFB"
     },
     {
         "name": "Figma",
-        "id": 7,
+        "id": 6,
         "icon": "https://cdn.simpleicons.org/figma/F24E1E"
     },
     {
         "name": "Git",
-        "id": 8,
+        "id": 7,
         "icon": "https://cdn.simpleicons.org/git/F05032"
     },
     {
         "name": "Firebase",
-        "id": 9,
+        "id": 8,
         "icon": "https://cdn.simpleicons.org/firebase/FFCA28"
     },
     {
         "name": "Blender",
-        "id": 10,
+        "id": 9,
         "icon": "https://cdn.simpleicons.org/blender/EB8C10"
     }
 ]
