@@ -35,38 +35,28 @@
         "icon": "https://cdn.simpleicons.org/pytorch/EE4C2C"
     },
     {
-        "name": "Core Data",
-        "id": 8,
-        "icon": "https://cdn.simpleicons.org/apple/000000"
-    },
-    {
         "name": "React",
-        "id": 9,
+        "id": 8,
         "icon": "https://cdn.simpleicons.org/react/61DAFB"
     },
     {
         "name": "Figma",
-        "id": 10,
+        "id": 9,
         "icon": "https://cdn.simpleicons.org/figma/F24E1E"
     },
     {
         "name": "Git",
-        "id": 11,
+        "id": 10,
         "icon": "https://cdn.simpleicons.org/git/F05032"
     },
     {
         "name": "Firebase",
-        "id": 12,
+        "id": 11,
         "icon": "https://cdn.simpleicons.org/firebase/FFCA28"
     },
     {
         "name": "Blender",
-        "id": 13,
+        "id": 12,
         "icon": "https://cdn.simpleicons.org/blender/EB8C10"
-    },
-    {
-        "name": "Scikit-learn",
-        "id": 14,
-        "icon": "https://cdn.simpleicons.org/scikitlearn/F7931E"
     }
 ]
