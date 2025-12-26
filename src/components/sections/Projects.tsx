@@ -6,6 +6,8 @@ import { Plus, ChevronLeft, ChevronRight } from "lucide-react"
 import { Modal } from "@/components/ui/modal"
 import { Button } from "@/components/ui/button"
 
+import Image from "next/image"
+
 import projects from "@/data/projects.json"
 
 interface Project {
@@ -14,6 +16,9 @@ interface Project {
     description: string;
     details: string;
     tags: string[];
+    link?: string;
+    buttonText?: string;
+    image?: string;
 }
 
 export function Projects() {
@@ -31,7 +36,7 @@ export function Projects() {
     }
 
     return (
-        <section id="projects" className="py-16 px-6 md:px-12 w-full">
+        <section id="projects" className="py-24 px-6 md:px-12 w-full">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#1d1d1f] mb-8 md:mb-12">Projects</h2>
 
             {/* Horizontal Scroll Container */}
@@ -43,26 +48,35 @@ export function Projects() {
                     <div
                         key={project.id}
                         onClick={() => setSelectedProject(project)}
-                        className="flex-shrink-0 w-[280px] md:w-[320px] aspect-[9/16] bg-[#8E8180] rounded-[24px] relative group snap-center overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
+                        className="flex-shrink-0 w-[280px] md:w-[320px] aspect-[33/81] bg-[#8E8180] rounded-[24px] relative group snap-center overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
                     >
-                        {/* Wireframe Cross (X) */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
-                            <div className="w-full h-[1px] bg-black rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
-                            <div className="w-full h-[1px] bg-black -rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
-                        </div>
+                        {project.image ? (
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                        ) : (
+                            /* Wireframe Cross (X) for projects without images */
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+                                <div className="w-full h-[1px] bg-black rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
+                                <div className="w-full h-[1px] bg-black -rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
+                            </div>
+                        )}
 
-                        <div className="absolute bottom-8 left-8 right-8">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+                        <div className="absolute bottom-8 left-8 right-8 z-10">
                             <h3 className="text-white font-bold text-2xl mb-2">{project.title}</h3>
                             <p className="text-white/70 text-sm line-clamp-3">{project.description}</p>
                         </div>
 
-                        <div className="absolute bottom-6 right-6">
+                        <div className="absolute bottom-6 right-6 z-10">
                             <div className="w-10 h-10 rounded-full border-2 border-white/50 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-300">
                                 <Plus className="w-6 h-6 text-white group-hover:text-[#1d1d1f]" />
                             </div>
                         </div>
-
-                        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     </div>
                 ))}
             </div>
@@ -95,11 +109,20 @@ export function Projects() {
                 maxWidthClass="max-w-5xl"
             >
                 <div className="space-y-6">
-                    <div className="w-full aspect-video bg-[#8E8180] rounded-2xl relative overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                            <div className="w-full h-[1px] bg-black rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
-                            <div className="w-full h-[1px] bg-black -rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
-                        </div>
+                    <div className="w-full aspect-[16/9] bg-[#8E8180] rounded-2xl relative overflow-hidden">
+                        {selectedProject?.image ? (
+                            <Image
+                                src={selectedProject.image}
+                                alt={selectedProject.title}
+                                fill
+                                className="object-cover"
+                            />
+                        ) : (
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                                <div className="w-full h-[1px] bg-black rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
+                                <div className="w-full h-[1px] bg-black -rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
+                            </div>
+                        )}
                     </div>
                     <div>
                         <h4 className="text-xl font-semibold text-[#1d1d1f] mb-3">Overview</h4>
@@ -120,9 +143,22 @@ export function Projects() {
                             </span>
                         ))}
                     </div>
-                    <Button className="w-full md:w-auto bg-[#0071e3] hover:bg-[#0077ED] text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
-                        Launch Case Study
-                    </Button>
+                    {selectedProject?.link ? (
+                        <a
+                            href={selectedProject.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block w-full md:w-auto"
+                        >
+                            <Button className="w-full md:w-auto bg-[#0071e3] hover:bg-[#0077ED] text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
+                                {selectedProject.buttonText || "Launch Case Study"}
+                            </Button>
+                        </a>
+                    ) : (
+                        <Button className="w-full md:w-auto bg-[#0071e3] hover:bg-[#0077ED] text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
+                            {selectedProject?.buttonText || "Launch Case Study"}
+                        </Button>
+                    )}
                 </div>
             </Modal>
 

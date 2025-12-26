@@ -1,62 +1,101 @@
 [
     {
         "id": 1,
-        "title": "Render Monitor",
-        "description": "An iOS/iPadOS app to track Blender render status and preview frames remotely.",
-        "details": "Built using SwiftUI, Firebase, and RevenueCat. It allows artists to monitor long-running renders on their mobile devices with real-time updates.",
+        "title": "Commentary Box",
+        "description": "Comming Soon",
+        "details": "Comming Soon",
         "tags": [
-            "SwiftUI",
-            "Firebase",
-            "RevenueCat",
-            "Blender"
-        ]
+            "iOS"
+        ],
+        "link": "",
+        "buttonText": "App Store Link"
     },
     {
         "id": 2,
-        "title": "ChatOverAir",
-        "description": "A peer-to-peer ephemeral chat application for private communication.",
-        "details": "Utilizes MultipeerConnectivity and Combine for serverless, local communication. Focused on privacy and ephemeral messaging without data persistence.",
+        "title": "Render Monitor",
+        "description": "An iOS and iPadOS utility app that helps 3D artists plan, estimate, and monitor Blender renders remotely.",
+        "details": "Render Monitor enables artists and studios to estimate render time and storage requirements before starting a project, and optionally monitor ongoing Blender renders in real time using a companion Blender add-on. The app includes time and space calculators, live render progress tracking, estimated completion projections, crash detection alerts, and frame previews for Pro users. Built to improve planning, productivity, and reliability for long-running renders, with optional Pro features unlocked via a monthly subscription.",
         "tags": [
-            "Swift",
-            "MultipeerConnectivity",
-            "Combine",
-            "iOS"
-        ]
+            "SwiftUI",
+            "iOS",
+            "iPadOS",
+            "Blender",
+            "Rendering",
+            "Firebase",
+            "RevenueCat"
+        ],
+        "link": "https://apps.apple.com/us/app/render-monitor/id6751188763",
+        "buttonText": "App Store Link",
+        "image": "/projectId_2.png"
     },
     {
         "id": 3,
-        "title": "Marathi AI Audio Detection",
-        "description": "Deep learning system for classifying human vs. AI-generated Marathi speech.",
-        "details": "Achieved 99.68% accuracy using a CNN-based architecture. Solves the challenge of identifying deepfake audio in regional languages.",
+        "title": "ChAir : Privacy Focused Offline iOS Chat App",
+        "description": "An iOS app enabling anonymous, offline peer-to-peer chat and share using Multipeer Connectivity.",
+        "details": "ChAir (Chat Over Air) is built with SwiftUI and Apple’s MultipeerConnectivity framework to allow users to anonymously communicate with nearby peers over local Wi-Fi or Bluetooth without internet access or personal data sharing. It features dynamic chat rooms, private peer sessions, auto-deleting messages, image and document sharing, randomized peer names for anonymity, and a modern UI styled for iOS 26. The project is open source.",
         "tags": [
-            "Python",
-            "Deep Learning",
-            "CNN",
-            "Audio Processing"
-        ]
+            "iOS",
+            "SwiftUI",
+            "MultipeerConnectivity",
+            "Offline Chat",
+            "Open Source"
+        ],
+        "link": "https://github.com/roguestudios21/ChAir.git",
+        "buttonText": "View Repository",
+        "image": "/projectId_3.png"
     },
     {
         "id": 4,
-        "title": "Defake Video Detection",
-        "description": "Multimodal system combining FER and BERT for deepfake detection.",
-        "details": "Investigates inconsistencies between facial emotions (FER) and audio sentiment (BERT) to identify manipulated video content.",
+        "title": "Marathi Speech Audio Classification",
+        "description": "A deep learning–based system to classify real human and AI-synthesized Marathi speech.",
+        "details": "Focuses on detecting synthesized audio in regional languages by analyzing Marathi speech using Mel-spectrogram–based feature extraction. Utilizes a CNN trained on 28,863 audio samples with a 70/15/15 train-test-validation split to capture formants, harmonics, and perceptual frequency patterns. Achieves an accuracy of 99.68%, demonstrating strong capability in distinguishing human and AI-generated speech and helping mitigate risks of digital audio deception.",
+        "tags": [
+            "Audio Classification",
+            "Deep Learning",
+            "CNN",
+            "Mel-Spectrogram",
+            "Speech Processing",
+            "Research",
+            "Python"
+        ],
+        "link": "https://doi.org/10.1109/ICCCSMD63546.2024.11015131",
+        "buttonText": "View Publication",
+        "image": "/projectId_4.png"
+    },
+    {
+        "id": 5,
+        "title": "Multimodal Deepfake Detection System",
+        "description": "A research study focused on detecting deepfakes using combined visual, audio, and emotional cues to combat misinformation and identity fraud.",
+        "details": "Proposes a multimodal deepfake detection approach by analyzing facial emotion reactions and voice features. Integrates FER for emotion classification and a BERT-based sentiment analysis model to compare emotional consistency between audio and visual data. Achieves an accuracy of 85.50%, identifying videos as suspicious deepfakes when sentiment agreement drops below 40%. Emphasizes the importance of advanced detection systems to preserve digital trust and integrity amid rapid growth of synthetic media.",
         "tags": [
             "Machine Learning",
             "FER",
             "BERT",
-            "Computer Vision"
-        ]
+            "Computer Vision",
+            "Deepfake Detection",
+            "Artificial Intelligence",
+            "Natural Language Processing",
+            "Research"
+        ],
+        "link": "https://doi.org/10.1007/978-981-96-8283-6_21",
+        "buttonText": "View Publication",
+        "image": "/projectId_5.png"
     },
     {
-        "id": 5,
+        "id": 6,
         "title": "VRET for Hydrophobia",
-        "description": "VR-based exposure therapy project for treating fear of water.",
-        "details": "Developed using Blender and Unity. Published as a book chapter research. Provides a safe, controlled environment for therapy.",
+        "description": "A study on using Virtual Reality Exposure Therapy (VRET) to treat hydrophobia, the fear of water.",
+        "details": "Explores the mechanisms, benefits, limitations, and outcomes of VR-based exposure therapy for hydrophobia. Highlights advantages such as safe virtual environments, patient confidentiality, and elimination of real-world exposure, while emphasizing the need for further research and technological advancements, Developed using Blender and Unity, and tested using META 2 oculus glases. Published as a book chapter research.",
         "tags": [
             "Unity",
             "Blender",
             "VR",
-            "Research"
-        ]
+            "Research",
+            "Exposure Therapy",
+            "Mental Health"
+        ],
+        "link": "https://doi.org/10.4018/979-8-3693-1090-8.ch009",
+        "buttonText": "View Publication",
+        "image": "/projectId_6.png"
     }
 ]
