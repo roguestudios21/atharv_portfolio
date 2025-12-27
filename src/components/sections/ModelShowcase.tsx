@@ -71,7 +71,7 @@ export function ModelShowcase() {
                 </div>
             </div>
 
-            <div className="w-full h-[400px] md:h-[520px] rounded-[48px] overflow-hidden bg-card border border-border relative transition-all duration-500 shadow-xl group/viewer">
+            <div className="w-full h-[400px] md:h-[520px] rounded-[48px] overflow-hidden bg-card border border-border relative transition-all duration-500 shadow-sm group/viewer">
                 {/* Model Info Overlay */}
                 <div className="absolute top-8 left-8 z-10 pointer-events-none">
                     <motion.div

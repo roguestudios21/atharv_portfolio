@@ -36,9 +36,9 @@ export function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-left mb-16"
+                    className="text-left mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tighter text-foreground">
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-4 tracking-tight text-foreground">
                         Services
                     </h2>
                     <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">

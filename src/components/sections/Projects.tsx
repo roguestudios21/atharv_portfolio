@@ -36,8 +36,8 @@ export function Projects() {
     }
 
     return (
-        <section id="projects" className="py-16 md:py-18 px-6 md:px-12 w-full">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-8 md:mb-12">Projects</h2>
+        <section id="projects" className="py-24 px-6 md:px-12 w-full">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-12">Projects</h2>
 
             {/* Horizontal Scroll Container */}
             <div

@@ -236,7 +236,7 @@ export function Skills() {
             <div className="w-full">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div>
-                        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-4 transition-colors duration-500">Skills & Technologies</h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-12 transition-colors duration-500">Skills & Technologies</h2>
                         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl transition-colors duration-500">
                             A curated set of tools and platforms I use to bring ideas to life.
                         </p>

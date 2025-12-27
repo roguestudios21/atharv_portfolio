@@ -11,11 +11,11 @@ export function Achievements() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <section id="achievements" className="py-16 px-6 md:px-12 w-full">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-8 md:mb-12 transition-colors duration-500">Achievements</h2>
+        <section id="achievements" className="py-24 px-6 md:px-12 w-full">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-12 transition-colors duration-500">Achievements</h2>
 
             <div
-                className="bg-secondary rounded-[32px] p-8 md:p-16 relative overflow-hidden h-[450px] md:h-[525px] cursor-pointer group hover:shadow-lg transition-all duration-500"
+                className="bg-card border border-border/50 shadow-sm rounded-[32px] md:rounded-[48px] p-8 md:p-16 relative overflow-hidden h-[450px] md:h-[525px] cursor-pointer group hover:shadow-lg transition-all duration-500"
                 onClick={() => setIsOpen(true)}
             >
                 <div className="space-y-4 md:space-y-6">
@@ -28,7 +28,7 @@ export function Achievements() {
                 </div>
 
                 {/* Bottom Blur Mask */}
-                <div className="absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-t from-secondary via-secondary/95 to-transparent pointer-events-none transition-all duration-500" />
+                <div className="absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-t from-card via-card/95 to-transparent pointer-events-none transition-all duration-500" />
 
                 {/* Floating Plus Button */}
                 <div className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-10">

@@ -6,6 +6,7 @@ import { Projects } from "@/components/sections/Projects"
 import { Skills } from "@/components/sections/Skills"
 import { ModelShowcase } from "@/components/sections/ModelShowcase"
 import { Achievements } from "@/components/sections/Achievements"
+import { BoatGame } from "@/components/sections/BoatGame"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col">
         <Introduction />
+        <BoatGame />
         <Services />
         <Projects />
         <Skills />
