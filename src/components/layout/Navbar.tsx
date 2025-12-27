@@ -9,11 +9,9 @@ import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 
 const navLinks = [
-    { name: "Timeline", href: "#timeline" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
     { name: "Achievements", href: "#achievements" },
-    { name: "About", href: "#about" },
 ]
 
 export function Navbar() {
