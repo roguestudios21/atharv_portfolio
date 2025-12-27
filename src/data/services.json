@@ -1,0 +1,51 @@
+[
+    {
+        "id": "video-editing",
+        "title": "Video Editing",
+        "description": "Professional 4K editing, color grading, and storytelling for digital content.",
+        "icon": "Video",
+        "size": "large"
+    },
+    {
+        "id": "app-dev",
+        "title": "App Development",
+        "description": "High-performance mobile and web apps built with cutting-edge tech.",
+        "icon": "Smartphone",
+        "size": "medium"
+    },
+    {
+        "id": "3d-models",
+        "title": "3D Models",
+        "description": "Detailed 3D assets for games, AR/VR, and production.",
+        "icon": "Box",
+        "size": "small"
+    },
+    {
+        "id": "3d-animation",
+        "title": "3D Animation",
+        "description": "Dynamic 3D animations and character rigging.",
+        "icon": "Play",
+        "size": "small"
+    },
+    {
+        "id": "minor-vfx",
+        "title": "Minor VFX",
+        "description": "Compositing, motion graphics, and visual enhancements.",
+        "icon": "Zap",
+        "size": "small"
+    },
+    {
+        "id": "research-support",
+        "title": "Research Paper Support",
+        "description": "Technical validation, data analysis, and documentation assistance.",
+        "icon": "FileText",
+        "size": "medium"
+    },
+    {
+        "id": "tech-consultation",
+        "title": "Tech Consultation",
+        "description": "Strategic advice for startups and technical architecture planning.",
+        "icon": "MessageSquare",
+        "size": "small"
+    }
+]

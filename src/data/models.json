@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Blender",
+        "path": "/models/blender_logo.glb",
+        "scale": 25,
+        "rotation": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 2,
+        "name": "React",
+        "path": "/models/react_logo.glb",
+        "scale": 25,
+        "rotation": [
+            0,
+            3.14159,
+            0
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Figma",
+        "path": "/models/figma_logo.glb",
+        "scale": 25,
+        "rotation": [
+            0,
+            3.14159,
+            0
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Swift",
+        "path": "/models/swift_logo.glb",
+        "scale": 25,
+        "rotation": [
+            0,
+            3.14159,
+            0
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Python",
+        "path": "/models/python_logo.glb",
+        "scale": 25,
+        "rotation": [
+            0,
+            3.14159,
+            0
+        ]
+    }
+]
