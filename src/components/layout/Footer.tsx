@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
     return (
-        <footer className="py-12 border-t border-white/10 bg-black">
+        <footer className="py-12 border-t border-border/50 bg-card transition-colors duration-500">
             <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="text-sm text-muted-foreground">
                     © {new Date().getFullYear()} Atharv Choughule. All rights reserved.

@@ -1,5 +1,16 @@
 [
     {
+        "id": 0,
+        "name": "Fox",
+        "path": "/models/fox.glb",
+        "scale": 1,
+        "rotation": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
         "id": 1,
         "name": "Blender",
         "path": "/models/blender_logo.glb",

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState, useEffect, useMemo } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Html, Float, RoundedBox, PerspectiveCamera, Center } from "@react-three/drei"
 import * as THREE from "three"
@@ -54,7 +54,7 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId, radius }: {
     // Calculate position on a cylinder
     const angle = (index / total) * Math.PI * 2
 
-    useFrame((state) => {
+    useFrame((_state) => {
         if (!meshRef.current) return
         const targetScale = isHovered ? 1.1 : 1
         meshRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1)
@@ -179,7 +179,7 @@ export function Skills() {
     const { resolvedTheme } = useTheme()
     const isDark = resolvedTheme === "dark"
     const [rotationY, setRotationY] = useState(0)
-    const [rotationX, setRotationX] = useState(0)
+    const [rotationX] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
 
     useEffect(() => {

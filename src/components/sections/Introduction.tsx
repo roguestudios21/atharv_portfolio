@@ -9,7 +9,7 @@ import data from "@/data/introduction.json"
 
 export function Introduction() {
     return (
-        <section id="introduction" className="w-full px-4 md:px-12 pt-28 md:pt-32 pb-8">
+        <section id="introduction" className="w-full px-4 md:px-12 py-24 md:py-32">
             {/* Main Hero Container - Flex-col on mobile, aspect ratio removed for mobile flexibility */}
             <div className="relative w-full md:aspect-[20/9] bg-card rounded-[32px] md:rounded-[60px] overflow-hidden flex flex-col md:flex-row items-center justify-center p-8 md:p-20 shadow-premium transition-all duration-500 border border-border/50">
 
@@ -22,7 +22,7 @@ export function Introduction() {
                     {/* Text Content */}
                     <div className="space-y-6 md:space-y-8 flex-1 order-2 md:order-1 text-center md:text-left">
                         <div>
-                            <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] md:leading-[0.9] mb-4 md:mb-6 text-foreground">
+                            <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-4 md:mb-6 text-foreground">
                                 {data.name}
                             </h1>
                             <p className="text-lg md:text-2xl lg:text-3xl font-medium text-muted-foreground tracking-tight leading-relaxed max-w-2xl mx-auto md:mx-0">
@@ -52,12 +52,12 @@ export function Introduction() {
                             </Button>
 
                             <div className="flex items-center gap-4">
-                                <Button asChild variant="outline" size="icon" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-border bg-background hover:bg-secondary hover:scale-105 transition-all duration-300">
+                                <Button asChild variant="outline" size="icon" aria-label="Github Profile" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-border bg-background hover:bg-secondary hover:scale-105 transition-all duration-300">
                                     <Link href={data.socials.github} target="_blank">
                                         <Github className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
                                     </Link>
                                 </Button>
-                                <Button asChild variant="outline" size="icon" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-border bg-background hover:bg-secondary hover:scale-105 transition-all duration-300">
+                                <Button asChild variant="outline" size="icon" aria-label="LinkedIn Profile" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-border bg-background hover:bg-secondary hover:scale-105 transition-all duration-300">
                                     <Link href={data.socials.linkedin} target="_blank">
                                         <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
                                     </Link>

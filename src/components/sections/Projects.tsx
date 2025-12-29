@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useRef } from "react"
-import { motion } from "framer-motion"
 import { Plus, ChevronLeft, ChevronRight } from "lucide-react"
 import { Modal } from "@/components/ui/modal"
 import { Button } from "@/components/ui/button"
@@ -109,7 +108,7 @@ export function Projects() {
                 maxWidthClass="max-w-5xl"
             >
                 <div className="space-y-6">
-                    <div className="w-full aspect-[16/9] bg-[#8E8180] rounded-2xl relative overflow-hidden">
+                    <div className="w-full aspect-[16/9] bg-secondary rounded-2xl relative overflow-hidden">
                         {selectedProject?.image ? (
                             <Image
                                 src={selectedProject.image}
@@ -119,8 +118,8 @@ export function Projects() {
                             />
                         ) : (
                             <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                                <div className="w-full h-[1px] bg-black rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
-                                <div className="w-full h-[1px] bg-black -rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
+                                <div className="w-full h-[1px] bg-foreground rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
+                                <div className="w-full h-[1px] bg-foreground -rotate-45 transform origin-center absolute top-1/2 left-0 scale-[3]" />
                             </div>
                         )}
                     </div>
@@ -150,12 +149,12 @@ export function Projects() {
                             rel="noopener noreferrer"
                             className="inline-block w-full md:w-auto"
                         >
-                            <Button className="w-full md:w-auto bg-[#0071e3] hover:bg-[#0077ED] text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
+                            <Button className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
                                 {selectedProject.buttonText || "Launch Case Study"}
                             </Button>
                         </a>
                     ) : (
-                        <Button className="w-full md:w-auto bg-[#0071e3] hover:bg-[#0077ED] text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
+                        <Button className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 h-auto text-lg font-medium border-0 transition-all">
                             {selectedProject?.buttonText || "Launch Case Study"}
                         </Button>
                     )}

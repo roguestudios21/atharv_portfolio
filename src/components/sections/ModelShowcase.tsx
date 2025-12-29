@@ -1,17 +1,16 @@
 "use client"
 
-import React, { Suspense, useState, useRef } from "react"
+import React, { Suspense, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import {
     OrbitControls,
     useGLTF,
     ContactShadows,
-    PerspectiveCamera,
     Environment,
     Center
 } from "@react-three/drei"
 import { useTheme } from "next-themes"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Box } from "lucide-react"
 import models from "@/data/models.json"
 import { Button } from "@/components/ui/button"
