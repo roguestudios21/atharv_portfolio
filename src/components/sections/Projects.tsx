@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 import projects from "@/data/projects.json"
+import { getAssetPath } from "@/lib/utils"
 
 interface Project {
     id: number;
@@ -51,7 +52,7 @@ export function Projects() {
                     >
                         {project.image ? (
                             <Image
-                                src={project.image}
+                                src={getAssetPath(project.image)}
                                 alt={project.title}
                                 fill
                                 className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -111,7 +112,7 @@ export function Projects() {
                     <div className="w-full aspect-[16/9] bg-secondary rounded-2xl relative overflow-hidden">
                         {selectedProject?.image ? (
                             <Image
-                                src={selectedProject.image}
+                                src={getAssetPath(selectedProject.image)}
                                 alt={selectedProject.title}
                                 fill
                                 className="object-cover"

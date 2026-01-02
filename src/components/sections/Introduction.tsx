@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, Phone, Download } from "lucide-react"
 
 import data from "@/data/introduction.json"
+import { getAssetPath } from "@/lib/utils"
 
 export function Introduction() {
     return (
@@ -45,7 +46,7 @@ export function Introduction() {
                         {/* Actions */}
                         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 md:gap-5 pt-4">
                             <Button asChild className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-10 h-14 md:h-16 text-base md:text-lg font-semibold border-0 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                                <Link href={data.resumeUrl} target="_blank" className="flex items-center gap-2.5">
+                                <Link href={getAssetPath(data.resumeUrl)} target="_blank" className="flex items-center gap-2.5">
                                     <Download className="w-5 h-5" />
                                     Download Resume
                                 </Link>
@@ -69,7 +70,7 @@ export function Introduction() {
                     {/* Profile Picture */}
                     <div className="relative w-full max-w-[280px] md:max-w-none md:w-[28rem] lg:w-[32rem] aspect-[3/4] rounded-[24px] md:rounded-[56px] overflow-hidden border border-border shadow-2xl shrink-0 order-1 md:order-2 self-center bg-secondary/50 mx-auto md:mx-0">
                         <Image
-                            src={data.profileImage}
+                            src={getAssetPath(data.profileImage)}
                             alt={data.name}
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-1000"

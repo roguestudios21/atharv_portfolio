@@ -19,6 +19,7 @@ import { ReactLogo } from "./logos/ReactLogo"
 import { SwiftLogo } from "./logos/SwiftLogo"
 import { SwiftUILogo } from "./logos/SwiftUILogo"
 import { TensorflowLogo } from "./logos/TensorflowLogo"
+import { getAssetPath } from "@/lib/utils"
 
 interface Skill {
     id: number;
@@ -126,7 +127,7 @@ function SkillBlock({ skill, index, total, hoveredId, setHoveredId, radius }: {
                             {skill.icon && (
                                 <div className="w-18 h-18 mb-5 drop-shadow-lg">
                                     <img
-                                        src={skill.icon}
+                                        src={getAssetPath(skill.icon)}
                                         alt={skill.name}
                                         className="w-full h-full object-contain"
                                     />
