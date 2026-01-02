@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { getAssetPath } from '@/lib/utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -15,7 +16,7 @@ type GLTFResult = GLTF & {
 }
 
 export function FigmaLogo(props: any) {
-  const { nodes } = useGLTF('/models/figma_logo.glb') as any
+  const { nodes } = useGLTF(getAssetPath('/models/figma_logo.glb')) as any
   return (
     <group {...props} dispose={null}>
       {/* Matte Glass Base */}
@@ -42,4 +43,4 @@ export function FigmaLogo(props: any) {
   )
 }
 
-useGLTF.preload('/models/figma_logo.glb')
+useGLTF.preload(getAssetPath('/models/figma_logo.glb'))

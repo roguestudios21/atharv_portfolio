@@ -14,9 +14,10 @@ import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Box } from "lucide-react"
 import models from "@/data/models.json"
 import { Button } from "@/components/ui/button"
+import { getAssetPath } from "@/lib/utils"
 
 function Model({ path, scale, rotation }: { path: string, scale: number, rotation?: [number, number, number] }) {
-    const { scene } = useGLTF(path) as any
+    const { scene } = useGLTF(getAssetPath(path)) as any
     return (
         <Center precise>
             <primitive

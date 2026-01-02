@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { getAssetPath } from '@/lib/utils'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -21,7 +22,7 @@ type GLTFResult = GLTF & {
 }
 
 export function BlenderLogo(props: any) {
-  const { nodes } = useGLTF('/models/blender_logo.glb') as any
+  const { nodes } = useGLTF(getAssetPath('/models/blender_logo.glb')) as any
 
   return (
     <group {...props} dispose={null}>
@@ -48,4 +49,4 @@ export function BlenderLogo(props: any) {
   )
 }
 
-useGLTF.preload('/models/blender_logo.glb')
+useGLTF.preload(getAssetPath('/models/blender_logo.glb'))

@@ -2,9 +2,10 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { getAssetPath } from '@/lib/utils'
 
 export function FirebaseLogo(props: any) {
-  const { nodes } = useGLTF('/models/firebase_logo.glb') as any
+  const { nodes } = useGLTF(getAssetPath('/models/firebase_logo.glb')) as any
   return (
     <group {...props} dispose={null}>
       {/* Matte Glass Base */}
@@ -28,4 +29,4 @@ export function FirebaseLogo(props: any) {
   )
 }
 
-useGLTF.preload('/models/firebase_logo.glb')
+useGLTF.preload(getAssetPath('/models/firebase_logo.glb'))

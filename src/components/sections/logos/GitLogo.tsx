@@ -2,9 +2,10 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { getAssetPath } from '@/lib/utils'
 
 export function GitLogo(props: any) {
-  const { nodes } = useGLTF('/models/git_logo.glb') as any
+  const { nodes } = useGLTF(getAssetPath('/models/git_logo.glb')) as any
   return (
     <group {...props} dispose={null}>
       {/* Matte Glass Base */}
@@ -22,4 +23,4 @@ export function GitLogo(props: any) {
   )
 }
 
-useGLTF.preload('/models/git_logo.glb')
+useGLTF.preload(getAssetPath('/models/git_logo.glb'))

@@ -2,9 +2,10 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { getAssetPath } from '@/lib/utils'
 
 export function PythonLogo(props: any) {
-  const { nodes } = useGLTF('/models/python_logo.glb') as any
+  const { nodes } = useGLTF(getAssetPath('/models/python_logo.glb')) as any
   return (
     <group {...props} dispose={null}>
       {/* Matte Glass Part (base_2) */}
@@ -22,4 +23,4 @@ export function PythonLogo(props: any) {
   )
 }
 
-useGLTF.preload('/models/python_logo.glb')
+useGLTF.preload(getAssetPath('/models/python_logo.glb'))

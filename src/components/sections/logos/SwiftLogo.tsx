@@ -2,9 +2,10 @@ import * as THREE from 'three'
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { getAssetPath } from '@/lib/utils'
 
 export function SwiftLogo(props: any) {
-  const { nodes } = useGLTF('/models/swift_logo.glb') as any
+  const { nodes } = useGLTF(getAssetPath('/models/swift_logo.glb')) as any
   return (
     <group {...props} dispose={null}>
       {/* Matte Glass Part (FF6D00) */}
@@ -22,4 +23,4 @@ export function SwiftLogo(props: any) {
   )
 }
 
-useGLTF.preload('/models/swift_logo.glb')
+useGLTF.preload(getAssetPath('/models/swift_logo.glb'))
