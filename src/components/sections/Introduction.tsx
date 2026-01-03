@@ -46,10 +46,10 @@ export function Introduction() {
                         {/* Actions */}
                         <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 md:gap-5 pt-4">
                             <Button asChild className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-10 h-14 md:h-16 text-base md:text-lg font-semibold border-0 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                                <Link href={getAssetPath(data.resumeUrl)} target="_blank" className="flex items-center gap-2.5">
+                                <a href={getAssetPath(data.resumeUrl)} target="_blank" download className="flex items-center gap-2.5">
                                     <Download className="w-5 h-5" />
                                     Download Resume
-                                </Link>
+                                </a>
                             </Button>
 
                             <div className="flex items-center gap-4">

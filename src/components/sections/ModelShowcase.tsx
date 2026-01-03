@@ -56,7 +56,13 @@ function Model({ path, scale, rotation }: { path: string, scale: number, rotatio
 
 export function ModelShowcase() {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [mounted, setMounted] = React.useState(false)
     const { resolvedTheme } = useTheme()
+
+    React.useEffect(() => {
+        setMounted(true)
+    }, [])
+
     const isDark = resolvedTheme === "dark"
 
     const currentModel = models[currentIndex]
@@ -124,46 +130,52 @@ export function ModelShowcase() {
                     </div>
                 </div>
 
-                <ErrorBoundary>
-                    <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 1, 8], fov: 45 }}>
-                        <Suspense fallback={null}>
-                            <ambientLight intensity={1.5} />
-                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} castShadow />
-                            <pointLight position={[-10, -10, -10]} intensity={1} color="#0071e3" />
+                {mounted ? (
+                    <ErrorBoundary>
+                        <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 1, 8], fov: 45 }}>
+                            <Suspense fallback={null}>
+                                <ambientLight intensity={1.5} />
+                                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} castShadow />
+                                <pointLight position={[-10, -10, -10]} intensity={1} color="#0071e3" />
 
-                            <group position={[0, 0, 0]}>
-                                <Center bottom>
-                                    <Model
-                                        key={currentModel.id}
-                                        path={currentModel.path}
-                                        scale={currentModel.scale || 1}
-                                        rotation={currentModel.rotation as [number, number, number]}
+                                <group position={[0, 0, 0]}>
+                                    <Center bottom>
+                                        <Model
+                                            key={currentModel.id}
+                                            path={currentModel.path}
+                                            scale={currentModel.scale || 1}
+                                            rotation={currentModel.rotation as [number, number, number]}
+                                        />
+                                    </Center>
+                                    <ContactShadows
+                                        position={[0, -0.01, 0]}
+                                        opacity={0.5}
+                                        scale={10}
+                                        blur={2}
+                                        far={10}
+                                        resolution={256}
+                                        color="#000000"
                                     />
-                                </Center>
-                                <ContactShadows
-                                    position={[0, -0.01, 0]}
-                                    opacity={0.5}
-                                    scale={10}
-                                    blur={2}
-                                    far={10}
-                                    resolution={256}
-                                    color="#000000"
-                                />
-                            </group>
+                                </group>
 
-                            <OrbitControls
-                                makeDefault
-                                enableZoom={true}
-                                minDistance={4}
-                                maxDistance={12}
-                                minPolarAngle={0}
-                                maxPolarAngle={Math.PI / 1.75}
-                            />
-                            <Environment preset="city" />
-                        </Suspense>
-                        <color attach="background" args={[isDark ? "#101010" : "#fbfbfd"]} />
-                    </Canvas>
-                </ErrorBoundary>
+                                <OrbitControls
+                                    makeDefault
+                                    enableZoom={true}
+                                    minDistance={4}
+                                    maxDistance={12}
+                                    minPolarAngle={0}
+                                    maxPolarAngle={Math.PI / 1.75}
+                                />
+                                <Environment preset="city" />
+                            </Suspense>
+                            <color attach="background" args={[isDark ? "#101010" : "#fbfbfd"]} />
+                        </Canvas>
+                    </ErrorBoundary>
+                ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-card">
+                        <Box className="w-12 h-12 text-muted-foreground/20 animate-pulse" />
+                    </div>
+                )}
             </div>
 
             {/* Model Thumbnails/Indicators */}
