@@ -6,15 +6,19 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getAssetPath(path: string) {
-  // Primary: Environment variable from build/config
-  const envBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
+  if (typeof window === "undefined") {
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    return path.startsWith("/") ? `${basePath}${path}` : path;
+  }
 
-  // Secondary: Detect from GitHub Actions env if available on client
-  const isGithubActions = typeof window !== "undefined"
-    ? (window as any).__NEXT_DATA__?.props?.pageProps?.isGithubActions
-    : (process.env.GITHUB_ACTIONS === "true" || process.env.NEXT_PUBLIC_GITHUB_ACTIONS === "true");
+  // Client-side: Try environment variable first
+  let basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  const basePath = envBasePath ?? (isGithubActions ? "/atharv_portfolio" : "");
+  // If environment variable is missing or empty, detect from current location
+  // This is a fallback for GitHub Pages subpath deployments
+  if (!basePath && window.location.pathname.startsWith("/atharv_portfolio")) {
+    basePath = "/atharv_portfolio";
+  }
 
   if (path.startsWith("/")) {
     return `${basePath}${path}`;
