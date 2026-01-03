@@ -16,6 +16,31 @@ import models from "@/data/models.json"
 import { Button } from "@/components/ui/button"
 import { getAssetPath } from "@/lib/utils"
 
+// Error Boundary for 3D Content
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+    constructor(props: { children: React.ReactNode }) {
+        super(props)
+        this.state = { hasError: false }
+    }
+    static getDerivedStateFromError() {
+        return { hasError: true }
+    }
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="flex flex-col items-center justify-center w-full h-full bg-muted/20 rounded-[32px] border border-dashed border-border p-12 text-center">
+                    <Box className="w-12 h-12 text-muted-foreground mb-4 opacity-50" />
+                    <h3 className="text-xl font-semibold mb-2">Display Error</h3>
+                    <p className="text-muted-foreground text-sm max-w-xs">
+                        There was a problem loading the 3D preview. This might be due to your browser's WebGL support.
+                    </p>
+                </div>
+            )
+        }
+        return this.props.children
+    }
+}
+
 function Model({ path, scale, rotation }: { path: string, scale: number, rotation?: [number, number, number] }) {
     const { scene } = useGLTF(getAssetPath(path)) as any
     return (
@@ -99,44 +124,46 @@ export function ModelShowcase() {
                     </div>
                 </div>
 
-                <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 1, 8], fov: 45 }}>
-                    <Suspense fallback={null}>
-                        <ambientLight intensity={1.5} />
-                        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} castShadow />
-                        <pointLight position={[-10, -10, -10]} intensity={1} color="#0071e3" />
+                <ErrorBoundary>
+                    <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 1, 8], fov: 45 }}>
+                        <Suspense fallback={null}>
+                            <ambientLight intensity={1.5} />
+                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} castShadow />
+                            <pointLight position={[-10, -10, -10]} intensity={1} color="#0071e3" />
 
-                        <group position={[0, 0, 0]}>
-                            <Center bottom>
-                                <Model
-                                    key={currentModel.id}
-                                    path={currentModel.path}
-                                    scale={currentModel.scale || 1}
-                                    rotation={currentModel.rotation as [number, number, number]}
+                            <group position={[0, 0, 0]}>
+                                <Center bottom>
+                                    <Model
+                                        key={currentModel.id}
+                                        path={currentModel.path}
+                                        scale={currentModel.scale || 1}
+                                        rotation={currentModel.rotation as [number, number, number]}
+                                    />
+                                </Center>
+                                <ContactShadows
+                                    position={[0, -0.01, 0]}
+                                    opacity={0.5}
+                                    scale={10}
+                                    blur={2}
+                                    far={10}
+                                    resolution={256}
+                                    color="#000000"
                                 />
-                            </Center>
-                            <ContactShadows
-                                position={[0, -0.01, 0]}
-                                opacity={0.5}
-                                scale={10}
-                                blur={2}
-                                far={10}
-                                resolution={256}
-                                color="#000000"
-                            />
-                        </group>
+                            </group>
 
-                        <OrbitControls
-                            makeDefault
-                            enableZoom={true}
-                            minDistance={4}
-                            maxDistance={12}
-                            minPolarAngle={0}
-                            maxPolarAngle={Math.PI / 1.75}
-                        />
-                        <Environment preset="city" />
-                    </Suspense>
-                    <color attach="background" args={[isDark ? "#101010" : "#fbfbfd"]} />
-                </Canvas>
+                            <OrbitControls
+                                makeDefault
+                                enableZoom={true}
+                                minDistance={4}
+                                maxDistance={12}
+                                minPolarAngle={0}
+                                maxPolarAngle={Math.PI / 1.75}
+                            />
+                            <Environment preset="city" />
+                        </Suspense>
+                        <color attach="background" args={[isDark ? "#101010" : "#fbfbfd"]} />
+                    </Canvas>
+                </ErrorBoundary>
             </div>
 
             {/* Model Thumbnails/Indicators */}
